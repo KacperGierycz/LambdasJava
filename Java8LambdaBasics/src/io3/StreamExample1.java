@@ -2,6 +2,7 @@ package io3;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import io.Person;
 
@@ -16,9 +17,16 @@ public class StreamExample1 {
 				new Person("DKacper4", "AGierycz4",39)				
 				);
 
-		people.stream()
-		.filter(p->p.getLastName().startsWith("C"))
-		.forEach(p->System.out.println(p.getFirstName()));
+		/*
+		 * people.stream() .filter(p->p.getLastName().startsWith("C"))
+		 * .forEach(p->System.out.println(p.getFirstName()));
+		 */
+		
+		 Long cout =people.parallelStream()
+		 .filter(p->p.getLastName().startsWith("C"))
+		 .count();
+		 
+		 System.out.println(cout);
 		
 	}
 
