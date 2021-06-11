@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Unit1SolutionJava8 {
 
@@ -33,9 +34,12 @@ public class Unit1SolutionJava8 {
 			
 		}
 
-		private static void printConditionaly(List<Person> people, Condition condition ) {
-			for(Person p:people) {
-				if(condition.test(p)) {
+//		private static void printConditionaly(List<Person> people, Condition condition ) {
+//			for(Person p:people) {
+			private static void printConditionaly(List<Person> people, Predicate<Person> predicate ) {
+				for(Person p:people) {	
+				
+				if(predicate.test(p)) {
 				System.out.println(p);
 				}
 			}			
